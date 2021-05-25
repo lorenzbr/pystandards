@@ -25,17 +25,17 @@ path = "F:\\Standards"
 def get_url(url):
     try:
         with closing(get(url, stream = True)) as resp:
-            if is_good_response(resp):
+            if is_successful_request(resp):
                 return resp.content
             else:
-                return None
+                return get(url, stream = True)
             
     except RequestException as e:
-        log_error('Error during request'.format(url, str(e)))
+        log_error('Error during request {} : {}'.format(url, str(e)))
         return None
     
 
-def is_good_response(resp):
+def is_successful_request(resp):
     content_type = resp.headers['Content-Type'].lower()
     return (resp.status_code == 200
             and content_type is not None

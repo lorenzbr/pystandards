@@ -18,20 +18,21 @@ class ieee_contributions:
     
     def get_url(self):
         """
-        Get url
+        Request data
         """
         try:
             with closing(get(self.url, stream = True)) as resp:
-                if self.is_good_response(resp):
+                if self.is_successful_request(resp):
                     return resp.content
                 else:
-                    return None
+                    print("error")
+                    return get(self.url, stream = True)
                 
         except RequestException as e:
-            self.log_error('Error during request'.format(self.url, str(e)))
+            self.log_error('Error during request {} : {}'.format(self.url, str(e)))
             return None
     
-    def is_good_response(self, resp):
+    def is_successful_request(self, resp):
         content_type = resp.headers['Content-Type'].lower()
         return (resp.status_code == 200
                 and content_type is not None
@@ -71,6 +72,7 @@ class ieee_contributions:
                                   "date_time_upload":date_time_upload, "dllink":dllink}, index = ['IDX']) 
             
             return df_results
+     
         
     
     
