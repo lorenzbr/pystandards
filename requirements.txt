@@ -1,0 +1,8 @@
+requests
+requests.exceptions
+contextlib
+bs4
+pandas
+datetime
+re
+-e

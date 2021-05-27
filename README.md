@@ -1,2 +1,2 @@
 # pystandards
-Collection of functions to retrieve data on technical standards
+Collection of functions to download data on technical standards
