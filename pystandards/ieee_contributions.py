@@ -5,6 +5,9 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import datetime
 import re
+import urllib.request
+import time
+import random
 
 class ieee_contributions:
     
@@ -67,16 +70,16 @@ class ieee_contributions:
             title = entry.find_all('td', class_='long')[0].text
             author = entry.find_all('td', class_='long')[1].text
             date_time_upload = entry.find_all('div')[1].text
-            dl_link = entry.find_all('td', class_='list_actions')[0].find('a')['href']
+            file = entry.find_all('td', class_='list_actions')[0].find('a')['href']
             
             df_results = pd.DataFrame({"date_time_created" : date_time_created, "year" : year, "dcn" : dcn, "rev" : rev, "group" : group,
-                                       "title" : title, "author" : author, "date_time_upload" : date_time_upload, "dl_link" : dl_link}, index = ['IDX']) 
+                                       "title" : title, "author" : author, "date_time_upload" : date_time_upload, "file" : file}, index = ['IDX']) 
             
             df_output = df_output.append(df_results)
             
         return df_output
      
-    def get_contributions(self, std_name, start_page, end_page):
+    def get_meta(self, std_name, start_page, end_page):
         
         df_output = self.init_df_output()       
         
@@ -86,14 +89,34 @@ class ieee_contributions:
             
             df_output = df_output.append(df_results)
             
-            # final download link
-            df_output['dl_link'] = self.url + df_output['dl_link']
+            print("Page " + str(page) + " Time: " + str(datetime.datetime.now()))
 
-            # get document type
-            df_output['doctype'] = ""
-            df_output['doctype'] = [re.split(r"\.(?=[^.]*$)", x)[-1] for x in df_output['dl_link']]
+        # get document type
+        df_output['doc_type'] = [re.split(r"\.(?=[^.]*$)", x)[-1] for x in df_output['file']]
             
-            print(str(page) + " Time: " + str(datetime.datetime.now()))
+        # link that can be used to download contributions
+        df_output['dl_link'] = self.url + df_output['file']
+        
+        df_output.loc[:, 'file'] = [re.sub(r"^/", "", x) for x in df_output['file']]
+        df_output.loc[:, 'file'] = [re.sub(r"\.([^.]*$)", "", x) for x in df_output['file']]
+        df_output.loc[:, 'file'] = [re.sub(r"/|\.", "_", x) for x in df_output['file']]
             
         return df_output
+    
+    
+    def download_contributions(self, df_metadata, path):
+        
+        for j in range(0, len(df_metadata)):
+            
+            url = df_metadata['dl_link'][j]
+            file = str(df_metadata['file'][j])
+            doc_type = str(df_metadata['doc_type'][j])
+            
+            urllib.request.urlretrieve(url, path + file + "." + doc_type)
+            
+            print(str(j) + " Time: " + str(datetime.datetime.now()))
+            
+            time.sleep(15 + random.randint(-5, 5))
+            
+        print("Download completed!")
      

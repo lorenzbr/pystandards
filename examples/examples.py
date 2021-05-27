@@ -1,12 +1,9 @@
 #### Webscraper for meta data and download link for IEEE contributions
 #### Website https://mentor.ieee.org/802/bp/StartPage
 
-
 from ieee_contributions import ieee_contributions
 
-
-ieee_con = ieee_contributions(verbose = True)
-
+ieee_contr = ieee_contributions(verbose = True)
 
 ## 802.11: max page number 698 as of 21 Sep. 2020
 ## 802.15: max page number 225 as of 24 Sep. 2020
@@ -22,4 +19,11 @@ standard_name = "802.11"
 # ...
 
 ## example
-df_output = ieee_con.get_contributions(standard_name, start_page = 1, end_page = 5)
+
+# get meta information
+df_output = ieee_contr.get_meta(standard_name, start_page = 1, end_page = 3)
+
+df_test = df_output[0:2]
+
+# download contributions
+ieee_contr.download_contributions(df_test, path = "")
