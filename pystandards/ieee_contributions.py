@@ -104,7 +104,7 @@ class ieee_contributions:
         return df_output
     
     
-    def download_contributions(self, df_metadata, path):
+    def download_contributions(self, df_metadata, path, time_sleep = 15):
         
         for j in range(0, len(df_metadata)):
             
@@ -121,7 +121,8 @@ class ieee_contributions:
             
             print(str(j) + " Time: " + str(datetime.datetime.now()))
             
-            time.sleep(15 + random.randint(-5, 5))
+            ## wait approximately 15 seconds to not overload the server
+            time.sleep(time_sleep + random.randint(-5, 5))
             
         print("Download completed!")
      
