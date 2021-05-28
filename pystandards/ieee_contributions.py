@@ -112,7 +112,12 @@ class ieee_contributions:
             file = str(df_metadata['file'][j])
             doc_type = str(df_metadata['doc_type'][j])
             
-            urllib.request.urlretrieve(url, path + file + "." + doc_type)
+            try:
+                urllib.request.urlretrieve(url, path + file + "." + doc_type)
+                
+            except Exception as e:
+                print(e)
+                continue
             
             print(str(j) + " Time: " + str(datetime.datetime.now()))
             

@@ -23,7 +23,7 @@ standard_name = "802.11"
 # get meta information
 df_output = ieee_contr.get_meta(standard_name, start_page = 1, end_page = 3)
 
-df_test = df_output[0:2]
+df_download = df_output[0:3]
 
 # download contributions
-ieee_contr.download_contributions(df_test, path = "")
+ieee_contr.download_contributions(df_download, path = "")
