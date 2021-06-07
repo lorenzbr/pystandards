@@ -1,5 +1,16 @@
 # pystandards
-Collection of functions to download data on technical standards and contributions
+
+Crawl and download meta information and documents on technical standards and contributions
+
+
+## Installation
+
+You can install the development version from [GitHub](https://github.com/) with:
+
+``` python
+pip install git+https://github.com/lorenzbr/pystandards.git
+```
+
 
 ## Functions
 
@@ -35,3 +46,16 @@ df_output = itut_std.get_meta(series, driver_file)
 df_download = df_output[0:3]
 itut_std.download_standards(df_download, path = "")
 ```
+
+## Contact
+
+Please contact <lorenz.brachtendorf@gmx.de> if you want to contribute to this project.
+
+You can also submit bug reports and suggestions via e-mail or <https://github.com/lorenzbr/pystandards/issues> 
+
+
+## License
+
+This repository is licensed under the MIT license.
+
+See [here](https://github.com/lorenzbr/pystandards/blob/master/LICENSE) for further information.
