@@ -1,9 +1,5 @@
 requests
 bs4
 pandas
-datetime
-time
-random
-re
 selenium
 -e
