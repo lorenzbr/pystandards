@@ -1,11 +1,9 @@
 requests
-urllib
 bs4
 pandas
 datetime
 time
 random
-os
 re
 selenium
 -e
