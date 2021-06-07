@@ -20,6 +20,7 @@ Please make sure you have [Google Chrome](https://www.google.com/chrome/) and th
 * Crawl meta information on ITU-T recommendations/standards [here](https://www.itu.int/ITU-T/recommendations)
 * Download ITU-T recommendation/standard documents [here](https://www.itu.int/ITU-T/recommendations)
 
+To parse standard documents and for related functions (e.g., accessing ETSI standard documents), see [here](https://github.com/lorenzbr/techStandards).
 
 ## Examples
 
