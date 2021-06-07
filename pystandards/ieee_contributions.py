@@ -1,3 +1,7 @@
+#### Webscraper for meta data and download link for IEEE contributions
+#### Website https://mentor.ieee.org/802/bp/StartPage
+
+
 from requests import get
 from requests.exceptions import RequestException
 from contextlib import closing

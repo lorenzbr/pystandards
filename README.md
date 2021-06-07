@@ -1,2 +1,37 @@
 # pystandards
-Collection of functions to download data on technical standards
+Collection of functions to download data on technical standards and contributions
+
+## Functions
+
+* Crawl meta information on IEEE contributions [here](https://mentor.ieee.org/802)
+* Download IEEE contribution documents [here](https://mentor.ieee.org/802)
+* Crawl meta information on ITU-T recommendations/standards [here](https://www.itu.int/ITU-T/recommendations)
+* Download ITU-T recommendation/standard documents [here](https://www.itu.int/ITU-T/recommendations)
+
+
+## Examples
+
+```python
+## Crawl meta information and download IEEE contributions
+from ieee_contributions import ieee_contributions
+ieee_contr = ieee_contributions(verbose = True)
+# name of standard
+standard_name = "802.11"
+# get meta information
+df_output = ieee_contr.get_meta(standard_name, start_page = 1, end_page = 3)
+# download contributions
+df_download = df_output[0:3]
+ieee_contr.download_contributions(df_download, path = "")
+
+## Crawl meta information and download ITU-T recommendations
+from itut_standards import itut_standards
+itut_std = itut_standards(verbose = True)
+series = ['A']
+## specify the Chrome driver to use for selenium (have Google Chrome installed)
+driver_file = "chromedriver.exe"
+# get meta information
+df_output = itut_std.get_meta(series, driver_file)
+# download standard documents as PDFs
+df_download = df_output[0:3]
+itut_std.download_standards(df_download, path = "")
+```

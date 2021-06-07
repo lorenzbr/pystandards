@@ -1,8 +1,13 @@
 requests
 requests.exceptions
+urllib.request
 contextlib
 bs4
 pandas
 datetime
+time
+random
+os
 re
+selenium
 -e
