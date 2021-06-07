@@ -11,7 +11,7 @@ You can install the development version from [GitHub](https://github.com/) with:
 pip install git+https://github.com/lorenzbr/pystandards.git
 ```
 
-Please make sure you have [Google Chrome](https://www.google.com/chrome/) and the corresponding chromedriver.exe (see [here] (https://chromedriver.chromium.org/downloads) installed to crawl meta information on ITU-T recommendations.
+Please make sure you have [Google Chrome](https://www.google.com/chrome/) and the corresponding chromedriver.exe (see [here](https://chromedriver.chromium.org/downloads)) installed to crawl meta information on ITU-T recommendations.
 
 ## Functions
 
