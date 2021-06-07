@@ -1,6 +1,5 @@
 requests
-requests.exceptions
-urllib.request
+urllib
 contextlib
 bs4
 pandas

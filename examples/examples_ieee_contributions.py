@@ -1,5 +1,5 @@
 #### Webscraper for meta data and download link for IEEE contributions
-#### Website https://mentor.ieee.org/802/bp/StartPage
+#### Website https://mentor.ieee.org/802/
 
 from ieee_contributions import ieee_contributions
 
