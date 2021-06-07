@@ -26,7 +26,7 @@ To parse standard documents and for related functions (e.g., accessing ETSI stan
 
 ```python
 ## Crawl meta information and download IEEE contributions
-from ieee_contributions import ieee_contributions
+from pystandards.ieee_contributions import ieee_contributions
 ieee_contr = ieee_contributions(verbose = True)
 # name of standard
 standard_name = "802.11"
@@ -37,7 +37,7 @@ df_download = df_output[0:3]
 ieee_contr.download_contributions(df_download, path = "")
 
 ## Crawl meta information and download ITU-T recommendations
-from itut_standards import itut_standards
+from pystandards.itut_standards import itut_standards
 itut_std = itut_standards(verbose = True)
 series = ['A']
 ## specify the Chrome driver to use for selenium (have Google Chrome installed)
