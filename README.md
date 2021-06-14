@@ -17,16 +17,16 @@ Please make sure you have [Google Chrome](https://www.google.com/chrome/) and th
 ## Functions
 
 * Crawl meta information on IEEE contributions (see [here](https://mentor.ieee.org/802))
-    * You can find the name of a standard (_std_name_) by clicking on the standard of interest. The standard name can be extracted from the URL as follows: <https://mentor.ieee.org/[standard name]/documents> (e.g., 802.11, 802.16, ...)
+    * You can find the name of a standard (_std_name_) by clicking on the standard of interest. The standard name can be extracted from the URL as follows: https://mentor.ieee.org/[standard name]/documents (e.g., 802.11, 802.16, ...)
     * Please specify from which pages you want to get the meta information (_start_page_ and _end_page_)
 * Download IEEE contribution documents (see [here](https://mentor.ieee.org/802))
-    * A data frame which contains the meta information on IEEE contributions, i.e. there are at least thee three columns _dl_link_, _file_ and _doc_type_
+    * A data frame which contains the meta information on IEEE contributions, i.e. it has at least the three columns _dl_link_, _file_ and _doc_type_
     * A path where documents are saved
-* Crawl meta information on ITU-T recommendations/standards [here](https://www.itu.int/ITU-T/recommendations)
-    * Specify the recommendation series (e.g., A, G, H)
+* Crawl meta information on ITU-T recommendations/standards (see [here](https://www.itu.int/ITU-T/recommendations))
+    * Specify the recommendation series (e.g., A, G, H, ...)
     * Provide path and name of the Chrome driver
-* Download ITU-T recommendation/standard documents [here](https://www.itu.int/ITU-T/recommendations)
-    * A data frame which contains the meta information of ITU-T standards, i.e. there are at least thee three columns _download_link_recommendation_ and _citation_
+* Download ITU-T recommendation/standard documents (see [here](https://www.itu.int/ITU-T/recommendations))
+    * A data frame which contains the meta information of ITU-T standards, i.e. it has at least the two columns _download_link_recommendation_ and _citation_
     * A path where documents are saved
 
 To parse standard documents and for related functions (e.g., accessing ETSI standard documents), see [here](https://github.com/lorenzbr/techStandards).
