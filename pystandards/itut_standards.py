@@ -50,6 +50,25 @@ class itut_standards:
     
     ## to do: modularize this function (right now: 3 for loops)
     def get_meta(self, series, driver_file):
+        """ Get meta information on ITU-T standards        
+
+        Parameters
+        ----------
+        series : list
+            A list containing the recommendation series (e.g, A, G, H, ...).
+        driver_file : str
+            Path and name of the Chrome driver exe.
+
+        Returns
+        -------
+        df_output : DataFrame
+            A data frame containing meta information on ITU-T standards.
+            
+        Examples
+        ----------
+        See https://github.com/lorenzbr/pystandards#readme
+
+        """
         
         ## create empty data frame for output table
         df_output = self.df_empty(["recommendation_number", "edition_number", "recommendation_title", "status",
@@ -322,6 +341,26 @@ class itut_standards:
     
     
     def download_standards(self, df_metadata, path, time_sleep = 15):
+        """Download standard documents        
+
+        Parameters
+        ----------
+        df_metadata : DataFrame
+            A data frame containing meta information on ITU-T standards. Can be obtained from the function get_meta().
+        path : str
+            A path where documents are saved.
+        time_sleep : int, optional
+            Time to wait in seconds after each document download. The default is 15.
+
+        Returns
+        -------
+        None.
+        
+        Examples
+        ----------
+        See https://github.com/lorenzbr/pystandards#readme
+
+        """
         
         for j in range(0, len(df_metadata)):
             

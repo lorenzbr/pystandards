@@ -84,6 +84,29 @@ class ieee_contributions:
         return df_output
      
     def get_meta(self, std_name, start_page, end_page):
+        """Get meta information on IEEE contributions     
+
+        Parameters
+        ----------
+        std_name : str
+            You can find the name of a standard (std_name) by clicking on the standard of interest on 
+            this webpage https://mentor.ieee.org/802. The standard name can be extracted from the URL 
+            as follows: https://mentor.ieee.org/ [standard name] /documents (e.g., 802.11, 802.16, ...).
+        start_page : int
+            First page from which to get data.
+        end_page : int
+            Last page from which to get data.
+
+        Returns
+        -------
+        df_output : DataFrame
+            A data frame containing meta information on IEEE contributions.
+            
+        Examples
+        ----------
+        See https://github.com/lorenzbr/pystandards#readme
+
+        """
         
         df_output = self.init_df_output()       
         
@@ -109,6 +132,26 @@ class ieee_contributions:
     
     
     def download_contributions(self, df_metadata, path, time_sleep = 15):
+        """Download contribution documents        
+
+        Parameters
+        ----------
+        df_metadata : DataFrame
+            A data frame containing meta information on IEEE contributions. Can be obtained from the function get_meta().
+        path : str
+            A path where documents are saved.
+        time_sleep : int, optional
+            Time in seconds to wait after each document download. The default is 15.
+
+        Returns
+        -------
+        None.
+        
+        Examples
+        ----------
+        See https://github.com/lorenzbr/pystandards#readme
+
+        """
         
         for j in range(0, len(df_metadata)):
             
