@@ -21,13 +21,13 @@ Please make sure you have [Google Chrome](https://www.google.com/chrome/) and th
     * Please specify from which pages you want to get the meta information (_start_page_ and _end_page_)
 * Download IEEE contribution documents (see [here](https://mentor.ieee.org/802))
     * A data frame which contains the meta information on IEEE contributions, i.e. it has at least the three columns _dl_link_, _file_ and _doc_type_
-    * A path where documents are saved
+    * A path where the documents are saved
 * Crawl meta information on ITU-T recommendations/standards (see [here](https://www.itu.int/ITU-T/recommendations))
     * Specify the recommendation series (e.g., A, G, H, ...)
     * Provide path and name of the Chrome driver
 * Download ITU-T recommendation/standard documents (see [here](https://www.itu.int/ITU-T/recommendations))
     * A data frame which contains the meta information of ITU-T standards, i.e. it has at least the two columns _download_link_recommendation_ and _citation_
-    * A path where documents are saved
+    * A path where the documents are saved
 
 To parse standard documents and for related functions (e.g., accessing ETSI standard documents), see [here](https://github.com/lorenzbr/techStandards).
 
@@ -50,7 +50,7 @@ ieee_contr.download_contributions(df_download, path = "")
 from pystandards.itut_standards import itut_standards
 itut_std = itut_standards(verbose = True)
 series = ['A']
-## Specify the Chrome driver to use Selenium (Google Chrome needs to be installed)
+# Specify the file of the Chrome driver (required for the use of Selenium)
 driver_file = "chromedriver.exe"
 # Get meta information
 df_output = itut_std.get_meta(series, driver_file)
