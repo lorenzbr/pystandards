@@ -35,20 +35,20 @@ To parse standard documents and for related functions (e.g., accessing ETSI stan
 ## Examples
 
 ```python
-## Crawl meta information and download IEEE contributions
+# Crawl meta information and download IEEE contributions
+from pystandards.itut_standards import itut_standards
 from pystandards.ieee_contributions import ieee_contributions
-ieee_contr = ieee_contributions(verbose = True)
+ieee_contr = ieee_contributions(verbose=True)
 # Name of the WiFi standard
 std_name = "802.11"
 # Get meta information
-df_output = ieee_contr.get_meta(std_name, start_page = 1, end_page = 3)
+df_output = ieee_contr.get_meta(std_name, start_page=1, end_page=3)
 # Download three contribution documents
 df_download = df_output[0:3]
-ieee_contr.download_contributions(df_download, path = "")
+ieee_contr.download_contributions(df_download, path="")
 
-## Crawl meta information and download ITU-T recommendations
-from pystandards.itut_standards import itut_standards
-itut_std = itut_standards(verbose = True)
+# Crawl meta information and download ITU-T recommendations
+itut_std = itut_standards(verbose=True)
 series = ['A']
 # Specify the file of the Chrome driver (required for the use of Selenium)
 driver_file = "chromedriver.exe"
@@ -56,7 +56,8 @@ driver_file = "chromedriver.exe"
 df_output = itut_std.get_meta(series, driver_file)
 # Download three standard documents as PDFs
 df_download = df_output[0:3]
-itut_std.download_standards(df_download, path = "")
+itut_std.download_standards(df_download, path="")
+
 ```
 
 
